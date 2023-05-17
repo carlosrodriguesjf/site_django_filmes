@@ -1,3 +1,5 @@
+{% extends 'filmes/base.html' %}
+{% block conteudo %}
 <h1>Meus filmes - Carlos Rodrigues</h1>
 <button><a href="{% url 'novo_filme'  %}">Novo filme</button>
 <table>
@@ -15,7 +17,9 @@
         <td>{{dado.resenha}}</td>
         <td><button><a href="{% url 'detalhe' dado.id %}">Detalhe</a></button></td>
         <td><button><a href="{% url 'editar' dado.id %}">Editar</a></button></td>
+        <td><button><a href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
         
     </tr>
     {% endfor %}
 </table>
+{% endblock %}

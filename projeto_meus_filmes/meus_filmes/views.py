@@ -56,6 +56,14 @@ def editar(request,id_filme):
             formulario.save()
         return redirect('pagina_inicial')
 
+def excluir(request,id_filme):
+    filme = Filme.objects.get(pk=id_filme)
+    if request.method == 'POST':
+        filme.delete()
+        return redirect('pagina_inicial') 
+    return render(request,'filmes/confirmar_exclusao.html',{'item': filme})
+
+
 
 
 

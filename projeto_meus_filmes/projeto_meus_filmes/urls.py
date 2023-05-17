@@ -25,6 +25,7 @@ urlpatterns = [
     path('filme_registrado/',views.filme_registrado,name='filme_registrado'),
     path('/<int:id_filme>',views.detalhe,name='detalhe'),
     path('novo_filme/<int:id_filme>',views.editar,name='editar'),
+    path('excluir_filme/<int:id_filme>',views.excluir,name='excluir'),
     
 
 ]
