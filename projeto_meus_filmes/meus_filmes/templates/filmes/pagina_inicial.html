@@ -1,0 +1,17 @@
+<h1>Listagem de Investimentos</h1>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>Finalizado</th>
+        <th>Resenha</th>
+    </tr>
+    {% for dado in dados %}
+    <tr>
+        <td>{{dado.id}}</td>
+        <td>{{dado.filme}}</td>
+        <td>{{dado.lido}}</td>
+        <td>{{dado.resenha}}</td>
+    </tr>
+    {% endfor %}
+</table>
