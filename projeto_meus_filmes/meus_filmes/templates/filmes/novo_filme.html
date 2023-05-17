@@ -1,8 +1,8 @@
 
-<form action="{% url 'filme_registrado' %}" method="POST">
+<form action="" method="POST">
     {% csrf_token %}
-    <label>Gênero do livro</label>
-    <input type="text" name="GeneroFilme">
+    <h1>Formulário Novo Filme</h1>
+    {{formulario}}
     <button type="submit">Salvar</button>
 
 

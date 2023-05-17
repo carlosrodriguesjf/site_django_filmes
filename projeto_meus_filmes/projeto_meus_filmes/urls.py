@@ -21,7 +21,10 @@ from meus_filmes import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('',views.pagina_inicial,name='pagina_inicial'),
-    path('novo_filme/',views.novo_filme,name='novo_filme'),
+    path('novo_filme/',views.criar,name='novo_filme'),
     path('filme_registrado/',views.filme_registrado,name='filme_registrado'),
+    path('/<int:id_filme>',views.detalhe,name='detalhe'),
+    path('novo_filme/<int:id_filme>',views.editar,name='editar'),
+    
 
 ]
