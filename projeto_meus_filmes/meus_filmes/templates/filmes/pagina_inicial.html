@@ -1,25 +1,30 @@
 {% extends 'filmes/base.html' %}
 {% block conteudo %}
-<h1>Meus filmes - Carlos Rodrigues</h1>
-<button><a href="{% url 'novo_filme'  %}">Novo filme</button>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Finalizado</th>
-        <th>Resenha</th>
-    </tr>
-    {% for dado in dados %}
-    <tr>
-        <td>{{dado.id}}</td>
-        <td>{{dado.filme}}</td>
-        <td>{{dado.lido}}</td>
-        <td>{{dado.resenha}}</td>
-        <td><button><a href="{% url 'detalhe' dado.id %}">Detalhe</a></button></td>
-        <td><button><a href="{% url 'editar' dado.id %}">Editar</a></button></td>
-        <td><button><a href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
-        
-    </tr>
-    {% endfor %}
-</table>
+<h1 style="text-align:center;">Meus Filmes - Carlos Rodrigues</h1>
+<div class="container">
+    <button class="btn btn-success" style="margin-bottom: 10px;"><a style="color:white" href="{% url 'novo_filme'  %}">Novo filme</button>
+    <table class = "table table-striped table table-bordered" >
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Finalizado</th>
+            <th>Resenha</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for dado in dados %}
+        <tr>
+            <td>{{dado.id}}</td>
+            <td>{{dado.filme}}</td>
+            <td>{{dado.lido}}</td>
+            <td>{{dado.resenha}}</td>
+            <td><button class="btn btn-primary"><a style="color:white" href="{% url 'detalhe' dado.id %}">Detalhe</a></button></td>
+            <td><button class="btn btn-warning"><a style="color:white" href="{% url 'editar' dado.id %}">Editar</a></button></td>
+            <td><button class="btn btn-danger"><a style="color:white" href="{% url 'excluir' dado.id %}">Excluir</a></button></td>
+            
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}

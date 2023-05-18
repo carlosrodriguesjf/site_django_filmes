@@ -1,18 +1,20 @@
-<h1>Detalhes deste filme</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Finalizado</th>
-        <th>Resenha</th>
-    </tr>
-    <tr>
-        <td>{{dados.id}}</td>
-        <td>{{dados.filme}}</td>
-        <td>{{dados.lido}}</td>
-        <td>{{dados.resenha}}</td>
-    </tr>
-
-
-
-</table>
+{% extends 'filmes/base.html' %}
+{% block conteudo %}
+<h1  style="text-align:center;">Detalhes deste filme</h1>
+<div class="container">
+    <table class = "table table-hover table table-bordered" >
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Finalizado</th>
+            <th>Resenha</th>
+        </tr>
+        <tr>
+            <td>{{dados.id}}</td>
+            <td>{{dados.filme}}</td>
+            <td>{{dados.lido}}</td>
+            <td>{{dados.resenha}}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}
