@@ -1,6 +1,8 @@
 from django.shortcuts import render,redirect, HttpResponse
 from .models import Filme
 from .forms import FilmeForm
+from django.contrib.auth.decorators import login_required
+
 
 
 
@@ -28,7 +30,7 @@ def detalhe(request,id_filme):
     }
     return render(request,'filmes/detalhe.html',dados)
 
-
+@login_required
 def criar(request):
     if request.method =='POST':
         filme_form = FilmeForm(request.POST)
@@ -42,7 +44,7 @@ def criar(request):
         }
     return render(request,'filmes/novo_filme.html',context=formulario)
 
-
+@login_required
 def editar(request,id_filme):
     filme = Filme.objects.get(pk=id_filme)
     #caso a requisição seja GET
@@ -56,6 +58,7 @@ def editar(request,id_filme):
             formulario.save()
         return redirect('pagina_inicial')
 
+@login_required
 def excluir(request,id_filme):
     filme = Filme.objects.get(pk=id_filme)
     if request.method == 'POST':

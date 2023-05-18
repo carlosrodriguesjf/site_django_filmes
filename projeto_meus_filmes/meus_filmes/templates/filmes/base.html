@@ -8,13 +8,35 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <title>Meus Filmes</title>
+    <title>Filmes</title>
   </head>
   <body>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" href="{% url 'pagina_inicial' %}">Meus Filmes</a>
+      <a class="navbar-brand" href="{% url 'pagina_inicial' %}">Filmes</a>
+      <ul style ="list-style: none;">
+          {% if user.is_authenticated %}
+          <li style = "float: left">
+            <strong class = "nav-item nav-link" >Bem-vindo(a) {{user.get_username}}</strong>
+          </li>
+          <li style = "float: left">
+            <a class = "nav-item nav-link" href="{% url 'logout' %}">Sair</a>
+          </li>
+          {% else %}
+          <li style = "float: left">
+            <a class = "nav-item nav-link" href="{% url 'login' %}">Login</a>
+          </li>
+          <li style = "float: left">
+            <a class = "nav-item nav-link" href="{% url 'novo_usuario' %}">Fazer cadastro</a>
+          </li>
+          {% endif %}
+      </ul>
     </nav>
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }}" >{{message}}</div>
+    {% endfor %}
+    {% endif %}
     {% block conteudo %}
     {% endblock %}
 
