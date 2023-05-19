@@ -1,1 +1,1 @@
-web: gunicorn projeto_meus_filmes.wgsi
+web: gunicorn projeto_meus_filmes.wsgi
