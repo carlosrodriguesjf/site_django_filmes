@@ -13,8 +13,7 @@ urlpatterns = [
     path('logout/',auth_views.LogoutView.as_view(template_name='usuarios/logout.html'),name='logout'),
     path('',views.pagina_inicial,name='pagina_inicial'),
     path('novo_filme/',views.criar,name='novo_filme'),
-    path('/<int:id_filme>',views.detalhe,name='detalhe'),
+    path('<int:id_filme>',views.detalhe,name='detalhe'),
     path('novo_filme/<int:id_filme>',views.editar,name='editar'),
     path('excluir_filme/<int:id_filme>',views.excluir,name='excluir'),
-    
 ]
